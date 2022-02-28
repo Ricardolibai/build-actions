@@ -28,6 +28,13 @@ sed -i "s/OpenWrt /${Author} Compiled in $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt 
 sed -i '/CYXluq4wUazHjmCDBCqXF/d' $ZZZ                                                            # 设置密码为空
 
 
+cat >$GITHUB_WORKSPACE/amlogic_openwrt <<-EOF
+amlogic_model=s905d
+amlogic_kernel=5.10.100_5.4.180 -a true
+rootfs_size=1200
+EOF
+
+
 # 修改插件名字
 sed -i 's/"aMule设置"/"电驴下载"/g' `grep "aMule设置" -rl ./`
 sed -i 's/"网络存储"/"NAS"/g' `grep "网络存储" -rl ./`
